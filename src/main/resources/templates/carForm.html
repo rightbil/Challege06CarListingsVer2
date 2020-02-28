@@ -22,7 +22,7 @@
 
         <select th:field="*{category}">
             <div th:each="d: ${catgs}">
-                <option th:value="${d.id}" th:text="${d.name}"></option>
+                <option th:value="${d.id}" th:text="${d.name}" th:required="required"></option>
             </div>
         </select>
         <input type="submit" value="Submit">

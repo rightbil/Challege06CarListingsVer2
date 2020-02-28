@@ -27,8 +27,8 @@
         <tr>
             <td th:text="${d.name}"></td>
            <!-- <td th:text="${d.location}"></td>-->
-            <a th:href="@{/deleteCategory/{id} (id= ${d.id})}">Delete</a>
-            <a th:href="@{/updateCategory/{id} (id= ${d.id})}">Update</a>
+            <td th:inline="text"><a th:href="@{/deleteCategory/{id} (id= ${d.id})}">Delete</a></td>
+            <td th:inline="text"><a th:href="@{/updateCategory/{id} (id= ${d.id})}">Update</a></td>
 
         </tr>
         <table>
@@ -45,10 +45,8 @@
                 <td th:inline="text">[[${a.year}]]</td>
                 <td th:inline="text">[[${a.location}]]</td>
                 <td th:inline="text">[[${a.vin}]]</td>
-
                 <td th:inline="text"><a th:href="@{/deleteCar/{id} (id= ${a.id})}">Delete</a></td>
                 <td th:inline="text"><a th:href="@{/updateCar/{id} (id= ${a.id})}">Update</a></td>
-
             </tr>
             <br>
         </table>

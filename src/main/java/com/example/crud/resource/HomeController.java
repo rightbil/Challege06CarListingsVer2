@@ -21,7 +21,7 @@ public class HomeController {
     @GetMapping("/")
     public String index(Model model) {
         model.addAttribute("categories", categoryRepository.findAll());
-        return "index";
+        return "carlists";
     }
 
     //TODO: 1.1 Add Category
@@ -77,17 +77,27 @@ public class HomeController {
     @RequestMapping("/updateCar/{id}")
     public String upateEmployee(@PathVariable("id") long id, Model model) {
         model.addAttribute("car", carRepository.findById(id).get());
+        model.addAttribute("catgs", categoryRepository.findAll());
         return "carForm";
     }
 
-
-    //TODO: Additional facilities search
-
-    @RequestMapping("/searchCategory")
-    public String search(@RequestParam("search") String search, Model model) {
-        model.addAttribute("searchResult", categoryRepository.findByName(search));
-        return "search";
-    }
-
-
-}
+    //TODO: Version One
+    /*Grading Criteria:
+    Add categories
+    Add cars
+    When adding cars, assign a category to that car
+    Update car information
+    Delete cars
+    View car details
+    List cars that were added
+    List categories
+    */
+    //TODO: Version Two
+    /*
+    If finished, proceed to additional criteria:
+    When the user clicks on a category, they will be given a list of cars under that category
+    Add cars with photos (Cloudinary optional)
+    Update photos of cars
+    Deploy your application to Heroku after you switch the database to PostgreSQL.
+*/
+   }

@@ -10,7 +10,7 @@
     <form method="post" th:action="@{/addCategory}" th:object="${category}">
         <input type="hidden" th:field="*{id}">
         Category Name : <br/>
-        <input type="text" th:field="*{name}" placeholder="Toyota"><br/>
+        <input type="text" th:field="*{name}" placeholder="Toyota" th:required="required"><br/>
         <input type="submit" value="Submit">
     </form>
 </div>
