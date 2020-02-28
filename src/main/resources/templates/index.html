@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Listings </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div><a href="/">Home </a></a>
+            <a href="/addCategory"> Add Category</a>
+            <a href="/addCar"> Add Cars</a>
+         </div>
+      </div>
+</nav>
+
+<h6>List of cars </h6>
+
+<table th:each="d: ${categories}">
+    <tr>
+        <th>Category</th>
+    <!--    <th>Location</th>-->
+    </tr>
+    <div>
+        <tr>
+            <td th:text="${d.name}"></td>
+           <!-- <td th:text="${d.location}"></td>-->
+            <a th:href="@{/deleteCategory/{id} (id= ${d.id})}">Delete</a>
+            <a th:href="@{/updateCategory/{id} (id= ${d.id})}">Update</a>
+
+        </tr>
+        <table>
+            <tr>
+                <th>Model</th>
+                <th>Year</th>
+                <th>Location</th>
+                <th>VIN#</th>
+                <th>Admin</th>
+            </tr>
+
+            <tr th:each="a: ${d.cars}">
+                <td th:inline="text">[[${a.model}]]</td>
+                <td th:inline="text">[[${a.year}]]</td>
+                <td th:inline="text">[[${a.location}]]</td>
+                <td th:inline="text">[[${a.vin}]]</td>
+
+                <td th:inline="text"><a th:href="@{/deleteCar/{id} (id= ${a.id})}">Delete</a></td>
+                <td th:inline="text"><a th:href="@{/updateCar/{id} (id= ${a.id})}">Update</a></td>
+
+            </tr>
+            <br>
+        </table>
+    </div>
+    <hr/>
+</table>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Listings </title>
+</head>
+<body>
+
+<div>
+    <h4>Car Form</h4>
+    <form method="post" th:action="@{/addCar}" th:object="${car}">
+        <input type="hidden" th:field="*{id}">
+        Model : <br/>
+        <input type="text" th:field="*{model}" placeholder="Camry" required><br/>
+        Year : <br/>
+        <input type="text" th:field="*{year}" placeholder="2020" required><br/>
+        VIN# : <br/>
+        <input type="text" th:field="*{vin}" placeholder="TIN4157898764" required><br/>
+        Location : <br/>
+        <input type="text" th:field="*{location}" placeholder="Silver Spring" required><br/>
+        Department:<br/>
+
+        <select th:field="*{category}">
+            <div th:each="d: ${catgs}">
+                <option th:value="${d.id}" th:text="${d.name}"></option>
+            </div>
+        </select>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+</body>
+</html>

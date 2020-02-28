@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h6>List Employees by Department</h6>
+
+<table th:each="d: ${departments}">
+    <tr>
+        <th>Department</th>
+        <th>Head</th>
+    </tr>
+    <div >
+        <tr>
+            <td th:text="${d.name}"></td>
+            <td th:text="${d.head}"></td>
+            <a th:href="@{/deleteDepartment/{id} (id= ${d.id})}">Delete</a>
+            <!-- <a th:href="@{/deleteDepartment/{id} (id= ${d.id})}">Delete</a>
+             <a th:href="@{/deleteDepartment/{id} (id= ${d.id})}">Delete</a>-->
+        </tr>
+        <table>
+            <tr>
+                <th>Employee Name</th> <th>Position</th> <th>Salary</th>
+            </tr>
+
+            <tr th:each="a: ${d.cars}">
+                <td th:inline="text">[[${a.firstName}]] [[${a.lastName}]]</td>
+                <td th:inline="text">[[${a.role}]] </td>
+                <td th:inline="text">[[${a.salary}]] </td>
+                <td th:inline="text"> <a th:href="@{/deleteEmployee/{id} (id= ${a.id})}">Delete</a> </td>
+                <td th:inline="text"> <a th:href="@{/updateEmployee/{id} (id= ${a.id})}">Update</a> </td>
+
+            </tr>
+            <br>
+        </table>
+    </div>
+    <hr/>
+</table>
+</body>
+</html>

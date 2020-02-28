@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+     <form th:action="@{/searchDepartment}" method="post" class="navbar-form navbar-left">
+         <div class="form-group">
+             <input type="text" name="search" placeholder="Enter category name" required>
+             <input type="submit" class="btn btn-default" value="Search">
+         </div>
+     </form>
+    <div>
+        <tr th:each="d: ${searchResult}">
+            <td th:text="${d.name}" /><br/>
+            <td th:text="${d.location}" />
+            <h4> First Name : Last Name:  Role : Salary</h4>
+            <ul th:block th:each="a: ${d.cars}">
+                <td th:text="${a.model}" />
+                <td th:text="${a.year}" />
+                <td th:text="${a.location}" />
+                <td th:text="${a.vin}" />
+            </ul>
+        </tr>
+    </div>
+    <footer>
+        <a href="/"><button>Home</button></a>
+     </footer>
+
+</div>
+</body>
+</html>

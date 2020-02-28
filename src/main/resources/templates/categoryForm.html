@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Listings </title>
+</head>
+<body>
+<div>
+    <h4>Category Form</h4>
+    <form method="post" th:action="@{/addCategory}" th:object="${category}">
+        <input type="hidden" th:field="*{id}">
+        Category Name : <br/>
+        <input type="text" th:field="*{name}" placeholder="Toyota"><br/>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+</body>
+</html>
